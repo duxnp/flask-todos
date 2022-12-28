@@ -1,4 +1,5 @@
 from . import db
+from flask_admin.contrib.sqla import ModelView
 
 class Airport(db.Model):
     __tablename__ = 'airports'
@@ -8,6 +9,9 @@ class Airport(db.Model):
 
     def __repr__(self) -> str:
         return '<Airport %r>' % self.name
+
+class AirportView(ModelView):
+    form_excluded_columns = ['flights']
 
 class Flight(db.Model):
     __tablename__ = 'flights'
@@ -27,4 +31,7 @@ class Location(db.Model):
     flights = db.relationship('Flight', backref='destination')
 
     def __repr__(self) -> str:
-        return '<Location %r>' % self.id
+        return '<Location %r>' % f'{self.city}, {self.country}'
+
+class LocationView(ModelView):
+    form_excluded_columns = ['flights']
