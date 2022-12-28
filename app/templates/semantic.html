@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Todos{% endblock %}
+
+{% block page_content %}
+<main>
+    <article class="film_review">
+    {# 
+        article doesn't necessarily mean magazine article.
+        it's the other definition: a particular item or object.
+     #}
+        <header>
+            <h2>Jurassic Park</h2>
+            <p>It's a movie.</p>
+        </header>
+
+        <section class="main_review">
+            <h3>Review</h3>
+            <p>Dinos were great!</p>
+            <aside>
+                <p>This is my favorite movie.</p>
+            </aside>
+            <details>
+                <summary>Actors</summary>
+                <p>Actor 1</p>
+                <p>Actor 2</p>
+            </details>
+        </section>
+
+        <section class="user_reviews">
+            <h3>User reviews</h3>
+
+            <article class="user_review">
+                <h4>Too scary!</h4>
+                <p>Way too scary for me.</p>
+                <footer>
+                    <p>
+                        Posted on
+                        <time datetime="2015-05-16 19:00">May 16</time>
+                        by Lisa.
+                    </p>
+                </footer>
+            </article>
+
+            <article class="user_review">
+                <h4>Love the dinos!</h4>
+                <p>I agree, dinos are my favorite.</p>
+                <footer>
+                    <p>
+                        Posted on
+                        <time datetime="2015-05-17 19:00">May 17</time>
+                        by Tom.
+                    </p>
+                </footer>
+            </article>
+        </section>
+
+        <footer>
+            <p>
+                Posted on <time datetime="2015-05-15 19:00">May 15</time>
+                by 
+                <address>
+                    <a href="mailto:somedude@somedomain.com">Some Dude</a>
+                </address>
+            </p>
+        </footer>
+    </article>
+</main>
+
+<section>
+  <h2>About Us</h2>
+  <p>We review movies!</p>
+</section>
+
+<footer>
+  <address>
+  You can contact us at:<br>
+  ourwebsite.com<br>
+  123 Somewhere St.<br>
+  City, State
+  </address>
+</footer>
+
+{% endblock page_content %}

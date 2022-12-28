@@ -1,7 +1,7 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap5
 
-bootstrap = Bootstrap()
+bootstrap = Bootstrap5()
 
 def create_app():
     app = Flask(__name__)

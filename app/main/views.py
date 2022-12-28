@@ -9,7 +9,7 @@ def index():
     return render_template('index.html')
 
 @main.route("/hello/<name>")
-def hello_there(name):
+def hello(name):
     now = datetime.now()
     formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
@@ -23,4 +23,9 @@ def hello_there(name):
         clean_name = "Friend"
 
     content = "Hello there, " + clean_name + "! It's " + formatted_now
-    return content
+
+    return render_template('hello.html', clean_name=clean_name, formatted_now=formatted_now)
+
+@main.route("/semantic")
+def semantic():
+    return render_template('semantic.html')
