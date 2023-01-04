@@ -15,9 +15,10 @@ admin = Admin(app, name='todos', template_mode='bootstrap4')
 
 admin.add_views(
     m.AirportView(m.Airport, db.session),
-    ModelView(m.Flight, db.session),
-    ModelView(m.Location, db.session)
+    m.FlightView(m.Flight, db.session),
+    m.LocationView(m.Location, db.session)
 )
+
 
 @app.shell_context_processor
 def make_shell_context():
