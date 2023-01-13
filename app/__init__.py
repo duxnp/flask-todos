@@ -21,7 +21,9 @@ def create_app(config_name):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    admin = Admin(app, name='todos', template_mode='bootstrap4')
+    admin = Admin(app, name='todos',
+                  base_template='layout-admin.html', template_mode='bootstrap4')
+    # admin = Admin(app, name='todos', template_mode='bootstrap4')
     admin.add_views(
         AirportView(Airport, db.session),
         FlightView(Flight, db.session),
