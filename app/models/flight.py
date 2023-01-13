@@ -1,5 +1,4 @@
 from flask_admin.contrib.sqla.view import ModelView, func
-
 from . import db
 
 
@@ -35,12 +34,14 @@ class FlightView(ModelView):
         }
     }
 
-    def get_query(self):
-        return self.session.query(self.model).filter(
-            self.model.destination.has(city='Cherry Hill')
-        )
+    # Example of restricting records that appear in an admin view
+    # def get_query(self):
+    #     return self.session.query(self.model).filter(
+    #         self.model.destination.has(city='Cherry Hill')
+    #     )
 
-    def get_count_query(self):
-        return self.session.query(func.count('*')).filter(
-            self.model.destination.has(city='Cherry Hill')
-        )
+    # Example of restricting records that appear in an admin view
+    # def get_count_query(self):
+    #     return self.session.query(func.count('*')).filter(
+    #         self.model.destination.has(city='Cherry Hill')
+    #     )
