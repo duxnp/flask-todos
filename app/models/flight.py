@@ -39,8 +39,6 @@ class FlightView(ModelView):
     #     return self.session.query(self.model).filter(
     #         self.model.destination.has(city='Cherry Hill')
     #     )
-
-    # Example of restricting records that appear in an admin view
     # def get_count_query(self):
     #     return self.session.query(func.count('*')).filter(
     #         self.model.destination.has(city='Cherry Hill')
