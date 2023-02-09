@@ -16,5 +16,5 @@ class Location(db.Model):
 
 class LocationView(ModelView):
     form_excluded_columns = ['flights']
-    column_filters = ['country']
+    column_filters = ['city', 'country']
     inline_models = (Flight,)

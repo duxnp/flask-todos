@@ -14,6 +14,10 @@ class Airport(db.Model):
 
 
 class AirportView(ModelView):
+    can_create = False
+    can_edit = False
+    can_delete = False
+    can_view_details = True
     column_descriptions = dict(
         name='Airport Name'
     )

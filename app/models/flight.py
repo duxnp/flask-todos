@@ -14,10 +14,10 @@ class Flight(db.Model):
 
 
 class FlightView(ModelView):
+    can_view_details = True
     # column_choices = {
     #     'airport': [('id', 'name')]
     # }
-    can_view_details = True
     column_formatters = dict(
         airport=lambda v, c, m, p: m.airport.name,
         destination=lambda v, c, m, p: f'{m.destination.city}, {m.destination.country}'
