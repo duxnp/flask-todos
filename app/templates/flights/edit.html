@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% set active_page = "flights" %}
+
+{% block title %}Flight{% endblock %}
+
+{% block page_content %}
+<h1>Flight</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Number</th>
+      <th scope="col">Airport</th>
+      <th scope="col">Destination</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ flight.id }}</th>
+      <td>{{ flight.number }}</td>
+      <td>{{ flight.airport }}</td>
+      <td>{{ flight.destination }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<form action="{{ url_for('flights.update', id=flight.id) }}" method="post">
+  <div class="form-group">
+    <label for="flightNumber">Number</label>
+    <input type="text" class="form-control" id="flightNumber" name="number" value="{{ flight.number }}">
+  </div>
+
+  <div class="form-group">
+    <label for="flightAirport">Airport</label>
+    <select class="form-control" id="flightAirport" name="airport">
+      {% for airport in airports %}
+      <option>{{ airport }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="flightDestination">Destination</label>
+    <select class="form-control" id="flightDestination" name="destination">
+      {% for location in locations %}
+      <option>{{ location }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock page_content %}

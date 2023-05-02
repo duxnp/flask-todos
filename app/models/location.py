@@ -1,5 +1,5 @@
 from flask_admin.contrib.sqla.view import ModelView, func
-from . import db
+from .db import db
 from .flight import Flight
 
 

@@ -2,10 +2,7 @@ from flask import Flask
 from flask_admin import Admin
 from flask_bootstrap import Bootstrap4
 from config import config
-from app.models import db
-from app.models.airport import Airport, AirportView
-from app.models.flight import Flight, FlightView
-from app.models.location import Location, LocationView
+from app.models import *
 
 bootstrap = Bootstrap4()
 
@@ -17,9 +14,13 @@ def create_app(config_name):
 
     bootstrap.init_app(app)
     db.init_app(app)
+    ma.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    from .flights import flights as flights_blueprint
+    app.register_blueprint(flights_blueprint)
 
     admin = Admin(app, name='todos',
                   base_template='layout-admin.html', template_mode='bootstrap4')

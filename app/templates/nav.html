@@ -1,3 +1,5 @@
+{% set active_page = active_page|default('index') -%}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -8,7 +10,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ url_for('main.index') }}">Home</a>
+                    <a class="nav-link {% if active_page == "index" %} active {% endif %}" href="{{ url_for('main.index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{ ' active' if active_page == 'flights' }}" href="{{ url_for('flights.index') }}">Flights</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('main.semantic') }}">Semantic</a>
