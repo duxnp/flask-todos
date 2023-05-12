@@ -4,7 +4,12 @@
 {% block title %}Flights{% endblock %}
 
 {% block page_content %}
-<h1>Flights</h1>
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Flights</h1>
+  <span>
+    <a class="btn btn-primary" href="{{ url_for('flights.create') }}" role="button">Create New</a>
+  </span>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -12,6 +17,7 @@
       <th scope="col">Number</th>
       <th scope="col">Airport</th>
       <th scope="col">Destination</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +27,11 @@
       <td>{{ flight.number }}</td>
       <td>{{ flight.airport }}</td>
       <td>{{ flight.destination }}</td>
+      <td>
+        <a class="btn btn-primary btn-sm" href="{{ url_for('flights.delete', id=flight.id) }}" role="button">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </a>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
