@@ -19,6 +19,6 @@ class AirportSchema(BaseSchema):
         if data == 'Dumb Airport Name':
             raise ValidationError("This is a dumb airport!")
         
-    @post_load
-    def make_airport(self, data, **kwargs):
-        return Airport(**data)
+    # @post_load
+    # def make_airport(self, data, **kwargs):
+    #     return Airport(**data)

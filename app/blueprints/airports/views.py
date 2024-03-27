@@ -13,24 +13,23 @@ def dump_test():
     try:
         schema = AirportSchema()
 
-        # airport_json = {
-        #     "name": "Smart Airport Name",
-        #     "uknownField": "This will be ignored"
-        # }
-        # airport = schema.load(airport_json)
+        airport_json = {
+            # "name": "Smart Airport Name",
+            "unknownField": "This will be ignored"
+        }
+        airport = schema.load(airport_json)
 
-        # foo = Airport.query.get(1)
-        airport = db.session.query(Airport)\
-            .options(joinedload(Airport.flights))\
-            .filter(Airport.id == 1)\
-            .one()
+        # airport = Airport.query.get(1)
+        # airport = db.session.query(Airport)\
+        #     .options(joinedload(Airport.flights))\
+        #     .filter(Airport.id == 1)\
+        #     .one()
         
         airports = db.session.query(Airport)\
             .options(joinedload(Airport.flights))\
             .all()
 
-        # return jsonify(schema.dump(airports, many=True))
-        # return schema.jsonify(airports, many=True), 200
-        return airport.foo()
+        return jsonify(schema.dump(airport)), 200
+        # return jsonify(schema.dump(airports, many=True)), 200
     except ValidationError as error:
         return jsonify(error.messages)

@@ -1,0 +1,18 @@
+{
+    "terminal.integrated.env.windows": {
+        "FLASK_APP": "todos.py",
+        "FLASK_DEBUG": "1",
+        "FLASKY_ADMIN": "flasky@example.com",
+        "MAIL_SERVER": "smtp.mailtrap.io",
+        "MAIL_PORT": "2525",
+        "MAIL_USERNAME": "d0328b3a16c4b5",
+        "MAIL_PASSWORD": "e7f4631c81df00",
+        "MAIL_USE_TLS": "True",
+        "MAIL_USE_SSL": "False",
+        "APP_DB_USERNAME": "foo",
+    },
+    "files.associations": {
+        "*.html": "jinja-html"
+    },
+    "editor.formatOnSave": false
+}
